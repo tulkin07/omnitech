@@ -25,7 +25,7 @@ const FinalSection = () => {
             </div>
 
             <div className="flex flex-col md:flex-row items-center pt-8 border-t border-[#D7D7DF4D] text-[11px] text-[#D7D7DF] uppercase tracking-widest gap-4">
-              <p>2025 © OOO "Omnitech" Все права защищены</p>
+              <p>2025 © OOO &quot;Omnitech&quot; Все права защищены</p>
               <a
                 href="#"
                 className="hover:text-gray-300 underline decoration-[#D7D7DF] underline-offset-4"
