@@ -1,74 +1,61 @@
-import { Mail, MapPin, Send } from "lucide-react";
+import { useState } from "react";
+import { Mail, MapPin } from "lucide-react";
 import Container from "./Container";
 import { FormEvent } from "react";
 
 export const ContactSection = () => {
+  // Form step holati
+  const [formStep, setFormStep] = useState<"idle" | "sending" | "success">("idle");
+  const [activeField, setActiveField] = useState<string | null>(null);
+
+  // Form submit funksiyasi
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormStep("sending");
+    setTimeout(() => setFormStep("success"), 2500);
+  };
+
   return (
     <Container>
       <section className="mt-20 lg:mt-[140px]">
-        <div
-          className="
-            max-w-6xl mx-auto bg-white rounded-[32px] p-6 sm:p-8 lg:p-8
-            flex flex-col lg:flex-row gap-8 lg:gap-12
-          "
-        >
+        <div className="max-w-6xl mx-auto bg-white rounded-[32px] p-6 sm:p-8 lg:p-8 flex flex-col lg:flex-row gap-8 lg:gap-12">
           {/* Chap taraf: Forma */}
           <div className="flex-[2]">
-            <h2
-              className="
-                text-2xl sm:text-3xl lg:text-4xl lg:text-[40px]
-                font-bold text-[#02021E] mb-6 sm:mb-8 lg:mb-10
-              "
-            >
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl lg:text-[40px] font-bold text-[#02021E] mb-6 sm:mb-8 lg:mb-10">
               Готовы обсудить проект?
             </h2>
 
-            <form
-              className="space-y-6 sm:space-y-8"
-              onSubmit={(e: FormEvent<HTMLFormElement>) => {
-                e.preventDefault();
-                // hozircha hech qanday funksiya chaqirmaymiz
-              }}
-            >
+            <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
                 <input
                   type="text"
                   placeholder="Полное имя"
-                  className="
-                    w-full border-b border-gray-300 pb-2 outline-none
-                    focus:border-blue-600 transition-colors text-gray-700
-                  "
+                  className="w-full border-b border-gray-300 pb-2 outline-none focus:border-blue-600 transition-colors text-gray-700"
                 />
                 <input
                   type="text"
                   placeholder="Телефон *"
-                  className="
-                    w-full border-b border-gray-300 pb-2 outline-none
-                    focus:border-blue-600 transition-colors text-gray-700
-                  "
+                  className="w-full border-b border-gray-300 pb-2 outline-none focus:border-blue-600 transition-colors text-gray-700"
                 />
               </div>
 
               <input
                 type="text"
                 placeholder="Опишите ваш запрос"
-                className="
-                  w-full border-b border-gray-300 pb-2 outline-none
-                  focus:border-blue-600 transition-colors text-gray-700
-                "
+                className="w-full border-b border-gray-300 pb-2 outline-none focus:border-blue-600 transition-colors text-gray-700"
               />
 
               <button
-                className="
-                  mt-4 sm:mt-6 lg:mt-[40px]
-                  bg-[#FDC448] hover:bg-yellow-600 transition
-                  font-semibold px-6 sm:px-8 py-3 sm:py-4
-                  rounded-md text-[#02021E] cursor-pointer
-                "
+                type="submit"
+                className="mt-4 sm:mt-6 lg:mt-[40px] bg-[#FDC448] hover:bg-yellow-600 transition font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-md text-[#02021E] cursor-pointer"
               >
                 Оставить заявку →
               </button>
             </form>
+
+            {/* Form step xabari */}
+            {formStep === "sending" && <p className="mt-2 text-blue-600">Отправка...</p>}
+            {formStep === "success" && <p className="mt-2 text-green-600">Заявка отправлена!</p>}
           </div>
 
           {/* O'ng taraf: Kontaktlar */}
@@ -96,9 +83,7 @@ export const ContactSection = () => {
               </div>
               <div className="flex items-center gap-3 text-gray-600">
                 <MapPin size={18} className="text-[#D7D7DF]" />
-                <span className="text-sm sm:text-base">
-                  100000, Богишамол 112
-                </span>
+                <span className="text-sm sm:text-base">100000, Богишамол 112</span>
               </div>
             </div>
           </div>
