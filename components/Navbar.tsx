@@ -5,107 +5,133 @@ import Container from "./Container";
 import Link from "next/link";
 import { FiMenu, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
+import Button from "./ui/Button";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isFixed, setIsFixed] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeLink, setActiveLink] = useState("");
+
+  const TIF = "#0ABAB5";
 
   const links = [
-    { name: "О нас", href: "#" },
-    { name: "Проекты", href: "#" },
-    { name: "Команда", href: "#" },
+    { name: "About us", href: "about" },
+    { name: "Services", href: "services" },
+    { name: "Portfolio", href: "portfolio" },
+    { name: "Career", href: "career" },
+    { name: "Blog", href: "blog" },
+    { name: "Contact", href: "contact" },
   ];
 
-  const menuVariants = {
-    hidden: { opacity: 0, x: "-100%" },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
-    exit: { opacity: 0, x: "-100%", transition: { duration: 0.3 } },
-  };
-
   useEffect(() => {
-    const handleScroll = () => {
-      setIsFixed(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <nav
-      className={`w-full text-white left-0 z-50 transition-all duration-300
-      ${isFixed ? "fixed top-0 bg-gray-900 shadow-lg" : "relative mt-8"}`}
+      className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ${
+        isScrolled 
+          ? "py-3 bg-black/60 backdrop-blur-xl border-b border-white/10" 
+          : "py-6 bg-transparent"
+      }`}
     >
       <Container>
-        <div className="flex items-center justify-between h-16 relative">
-          {/* Logo */}
-          <div className="shrink-0 z-50">
-            <Link href="#" className="text-2xl font-bold">
-              OmniTech
-            </Link>
-          </div>
+        <div className="flex items-center justify-between relative">
+          
+          {/* 1. LOGO */}
+          <Link href="/" className="group flex items-center gap-2 z-[110]">
+            <div className="relative">
+               <div className="w-8 h-8 border-2 border-[#0ABAB5] rounded-lg rotate-45 group-hover:rotate-180 transition-transform duration-700" />
+               <div className="absolute inset-0 w-8 h-8 bg-[#0ABAB5]/20 blur-md rounded-full" />
+            </div>
+            <span className="text-xl font-bold tracking-tighter text-white">
+              OMNI<span style={{ color: TIF }}>TECH</span>
+            </span>
+          </Link>
 
-          {/* Desktop Menu */}
-          <ul className="hidden md:flex gap-8 items-center mx-auto">
+          {/* 2. DESKTOP MENU (Kreativ Hover & Active) */}
+          <div className="hidden lg:flex items-center bg-white/5 border border-white/10 px-2 py-1.5 rounded-full backdrop-blur-md relative">
             {links.map((link) => (
-              <li key={link.name}>
-                <Link
-                  href={link.href}
-                  className="hover:text-gray-400 transition"
-                >
-                  {link.name}
-                </Link>
-              </li>
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() => setActiveLink(link.name)}
+                className={`relative px-5 py-2 text-sm font-medium transition-colors duration-300 uppercase ${
+                  activeLink === link.name ? "text-black" : "text-gray-400 hover:text-white"
+                }`}
+              >
+                {activeLink === link.name && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute inset-0 bg-[#0ABAB5] rounded-full z-[-1]"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+                {link.name}
+              </Link>
             ))}
-          </ul>
-
-          {/* Button */}
-          <div className="hidden md:flex flex-shrink-0">
-            <button className="border border-[#FDC448] hover:bg-[#FDC448] transition px-6 py-3 rounded-lg cursor-pointer text-[#FDC448] hover:text-white">
-              Связаться
-            </button>
           </div>
 
-          {/* Mobile Toggle */}
-          <div className="md:hidden flex-shrink-0 z-50">
-            <button onClick={() => setIsOpen(!isOpen)}>
-              {isOpen ? <FiX size={28} /> : <FiMenu size={28} />}
-            </button>
+          {/* 3. PHONE & BUTTON */}
+          <div className="hidden lg:flex items-center gap-8">
+
+            {/* <button 
+              className="relative overflow-hidden group px-7 py-3 rounded-full bg-white text-black font-bold text-sm transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(10,186,181,0.2)]"
+            >
+              <span className="relative z-10">Get Started</span>
+              <div className="absolute inset-0 bg-[#0ABAB5] translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-0" />
+            </button> */}
+            <Button/>
           </div>
+
+          {/* 4. MOBILE TOGGLE */}
+          <button 
+            className="lg:hidden p-2 text-white z-[110]"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <FiX size={28} /> : <FiMenu size={28} />}
+          </button>
         </div>
       </Container>
 
-      {/* Mobile Fullscreen Menu */}
+      {/* 5. MOBILE MENU (Full Overlay) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed top-0 left-0 w-full h-full bg-gray-900 flex flex-col justify-center items-center z-[100]"
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={menuVariants}
+            initial={{ opacity: 0, clipPath: "circle(0% at 90% 10%)" }}
+            animate={{ opacity: 1, clipPath: "circle(150% at 90% 10%)" }}
+            exit={{ opacity: 0, clipPath: "circle(0% at 90% 10%)" }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            className="fixed inset-0 bg-black flex flex-col justify-center items-center z-[100]"
           >
-            <ul className="flex flex-col gap-8 text-2xl text-center">
-              {links.map((link) => (
-                <li key={link.name}>
+            <div className="flex flex-col gap-6 text-center">
+              {links.map((link, i) => (
+                <motion.div
+                  key={link.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * i }}
+                >
                   <Link
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="hover:text-gray-400 transition"
+                    className="text-4xl font-light hover:text-[#0ABAB5] transition-colors"
                   >
                     {link.name}
                   </Link>
-                </li>
+                </motion.div>
               ))}
-              <li>
-                <button
-                  className="border border-[#FDC448] hover:bg-[#FDC448] transition px-6 py-3 rounded-lg cursor-pointer text-[#FDC448] hover:text-white"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Связаться
-                </button>
-              </li>
-            </ul>
+              <motion.button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                className="mt-10 px-10 py-4 border-2 border-[#0ABAB5] text-[#0ABAB5] rounded-full text-xl font-bold uppercase tracking-widest hover:bg-[#0ABAB5] hover:text-black transition-all"
+              >
+                Get Started
+              </motion.button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

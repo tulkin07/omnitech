@@ -1,10 +1,12 @@
 import "./globals.css";
-import { Nunito_Sans } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 // Google Fonts orqali Nunito Sans
-const nunitoSans = Nunito_Sans({
+const nunitoSans = Space_Grotesk({
   variable: "--font-nunito-sans",
   subsets: ["latin"],
   weight: ["400", "700"],
@@ -25,6 +27,8 @@ export default function RootLayout({
       <body className={`${nunitoSans.variable} antialiased min-h-screen`}>
         <Navbar/>
         {children}
+        <Footer/>
+        <ScrollToTop/>
       </body>
     </html>
   );
