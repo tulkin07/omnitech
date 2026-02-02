@@ -1,5 +1,6 @@
 import { Mail, MapPin, Send } from "lucide-react";
 import Container from "./Container";
+import { FormEvent } from "react";
 
 export const ContactSection = () => {
   return (
@@ -22,7 +23,13 @@ export const ContactSection = () => {
               Готовы обсудить проект?
             </h2>
 
-            <form className="space-y-6 sm:space-y-8">
+            <form
+              className="space-y-6 sm:space-y-8"
+              onSubmit={(e: FormEvent<HTMLFormElement>) => {
+                e.preventDefault();
+                // hozircha hech qanday funksiya chaqirmaymiz
+              }}
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
                 <input
                   type="text"
@@ -89,7 +96,9 @@ export const ContactSection = () => {
               </div>
               <div className="flex items-center gap-3 text-gray-600">
                 <MapPin size={18} className="text-[#D7D7DF]" />
-                <span className="text-sm sm:text-base">100000, Богишамол 112</span>
+                <span className="text-sm sm:text-base">
+                  100000, Богишамол 112
+                </span>
               </div>
             </div>
           </div>
