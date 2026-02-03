@@ -10,11 +10,12 @@ import Button from "./ui/Button";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeLink, setActiveLink] = useState("");
+  const [activeLink, setActiveLink] = useState("Home");
 
   const TIF = "#0ABAB5";
 
   const links = [
+    { name: "Home", href: "/" },
     { name: "About us", href: "about" },
     { name: "Services", href: "services" },
     { name: "Portfolio", href: "portfolio" },
@@ -59,7 +60,7 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setActiveLink(link.name)}
                 className={`relative px-5 py-2 text-sm font-medium transition-colors duration-300 uppercase ${
-                  activeLink === link.name ? "text-black" : "text-gray-400 hover:text-white"
+                  activeLink === link.name ? "text-white" : "text-gray-400 hover:text-white"
                 }`}
               >
                 {activeLink === link.name && (
@@ -104,9 +105,9 @@ export default function Navbar() {
             animate={{ opacity: 1, clipPath: "circle(150% at 90% 10%)" }}
             exit={{ opacity: 0, clipPath: "circle(0% at 90% 10%)" }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="fixed inset-0 bg-black flex flex-col justify-center items-center z-[100]"
+            className="fixed bottom-0 inset-0 bg-black h-screen flex flex-col justify-center items-center z-[100] text-white"
           >
-            <div className="flex flex-col gap-6 text-center">
+            <div className="flex flex-col gap-4 text-center">
               {links.map((link, i) => (
                 <motion.div
                   key={link.name}
@@ -117,20 +118,20 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-4xl font-light hover:text-[#0ABAB5] transition-colors"
+                    className="text-2xl font-semibold hover:text-[#0ABAB5] transition-colors"
                   >
                     {link.name}
                   </Link>
                 </motion.div>
               ))}
-              <motion.button
+              {/* <motion.button
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
-                className="mt-10 px-10 py-4 border-2 border-[#0ABAB5] text-[#0ABAB5] rounded-full text-xl font-bold uppercase tracking-widest hover:bg-[#0ABAB5] hover:text-black transition-all"
+                className="mt-10 px-8 py-3 border-2 border-[#0ABAB5] text-[#0ABAB5] rounded-full text-xl font-bold uppercase tracking-widest hover:bg-[#0ABAB5] hover:text-black transition-all"
               >
                 Get Started
-              </motion.button>
+              </motion.button> */}
             </div>
           </motion.div>
         )}

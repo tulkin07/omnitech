@@ -1,96 +1,115 @@
 "use client";
-import React from 'react';
+import React from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Github, Layers, Code2, Monitor, Smartphone, Cpu, ShieldCheck } from "lucide-react";
+import {
+  ExternalLink,
+  Github,
+  Layers,
+  Code2,
+  Monitor,
+  Smartphone,
+  Cpu,
+  ShieldCheck,
+} from "lucide-react";
+import Button from "./ui/Button";
+import Link from "next/link";
 
 const projects = [
   {
     title: "Quantum Banking UI",
     category: "Fintech Solution",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070",
     link: "https://example.com",
     github: "#",
     size: "large",
     tags: ["React", "D3.js"],
-    icon: <Monitor size={20} />
+    icon: <Monitor size={20} />,
   },
   {
     title: "EcoTrack App",
     category: "Mobile Design",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070",
+    image:
+      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070",
     link: "https://example.com",
     github: "#",
     size: "small",
     tags: ["Flutter"],
-    icon: <Smartphone size={20} />
+    icon: <Smartphone size={20} />,
   },
   {
     title: "AI Neural Network",
     category: "Machine Learning",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070",
     link: "https://example.com",
     github: "#",
     size: "small",
     tags: ["Python", "TensorFlow"],
-    icon: <Code2 size={20} />
+    icon: <Code2 size={20} />,
   },
   {
     title: "Cyber Security Hub",
     category: "Security Platform",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070",
+    image:
+      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070",
     link: "https://example.com",
     github: "#",
     size: "small",
     tags: ["Go", "Next.js"],
-    icon: <ShieldCheck size={20} />
+    icon: <ShieldCheck size={20} />,
   },
   {
     title: "Omni Store Pro",
     category: "E-Commerce",
-    image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=2070",
+    image:
+      "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=2070",
     link: "https://example.com",
     github: "#",
     size: "large",
     tags: ["Node.js", "Stripe"],
-    icon: <ExternalLink size={20} />
+    icon: <ExternalLink size={20} />,
   },
   {
     title: "Smart Home OS",
     category: "IoT Systems",
-    image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?q=80&w=2070",
+    image:
+      "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?q=80&w=2070",
     link: "https://example.com",
     github: "#",
     size: "small",
     tags: ["C++", "Vue.js"],
-    icon: <Cpu size={20} />
-  }
+    icon: <Cpu size={20} />,
+  },
 ];
 
 export default function Portfolio() {
   return (
     <section className="bg-[#050505] py-32 px-6 text-white font-sans overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        
         {/* HEADER SECTION */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
           <div className="max-w-2xl">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               className="flex items-center gap-3 mb-6"
             >
               <div className="w-10 h-[1px] bg-[#0ABAB5]" />
-              <span className="text-[#0ABAB5] text-[10px] font-bold tracking-[4px] uppercase">Selected Works</span>
+              <span className="text-[#0ABAB5] text-[10px] font-bold tracking-[4px] uppercase">
+                Selected Works
+              </span>
             </motion.div>
             <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9]">
-              Digital <br /> 
+              Digital <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0ABAB5] via-white to-gray-500">
                 Masterpieces.
               </span>
             </h2>
           </div>
           <p className="text-gray-500 text-sm max-w-[300px] leading-relaxed border-l border-white/10 pl-6">
-            We don't just build software; we craft digital experiences that redefine industry standards and user engagement.
+            We don't just build software; we craft digital experiences that
+            redefine industry standards and user engagement.
           </p>
         </div>
 
@@ -119,10 +138,16 @@ export default function Portfolio() {
 
               {/* Action Buttons */}
               <div className="absolute top-10 right-10 flex gap-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 z-20">
-                <a href={project.github} className="p-4 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 hover:bg-[#0ABAB5] hover:text-black transition-all">
+                <a
+                  href={project.github}
+                  className="p-4 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 hover:bg-[#0ABAB5] hover:text-black transition-all"
+                >
                   <Github size={20} />
                 </a>
-                <a href={project.link} className="p-4 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 hover:bg-[#0ABAB5] hover:text-black transition-all">
+                <a
+                  href={project.link}
+                  className="p-4 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 hover:bg-[#0ABAB5] hover:text-black transition-all"
+                >
                   <ExternalLink size={20} />
                 </a>
               </div>
@@ -135,7 +160,10 @@ export default function Portfolio() {
                   </div>
                   <div className="flex gap-2">
                     {project.tags.map((tag, idx) => (
-                      <span key={idx} className="text-[10px] font-bold text-gray-300 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full uppercase tracking-widest">
+                      <span
+                        key={idx}
+                        className="text-[10px] font-bold text-gray-300 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full uppercase tracking-widest"
+                      >
                         {tag}
                       </span>
                     ))}
@@ -157,17 +185,20 @@ export default function Portfolio() {
         </div>
 
         {/* CTA */}
-        <motion.div 
-          className="mt-24 text-center"
+        <motion.div
+          className="mt-24 flex justify-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
         >
-          <button className="group relative px-12 py-6 bg-transparent overflow-hidden rounded-full border border-white/10">
+          {/* <button className="group relative px-12 py-6 bg-transparent overflow-hidden rounded-full border border-white/10">
             <div className="absolute inset-0 bg-white translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500" />
             <span className="relative z-10 text-white group-hover:text-black font-black text-xs uppercase tracking-[5px] transition-colors">
               View All Archives
             </span>
-          </button>
+          </button> */}
+          <Link href={"/portfolio"}>
+            <Button className="py-4 px-10" text="    View All Archives" />
+          </Link>
         </motion.div>
       </div>
     </section>
