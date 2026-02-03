@@ -68,7 +68,7 @@ export default function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group relative h-[500px] rounded-[48px] overflow-hidden bg-[#0D0D0D] border border-white/5 cursor-crosshair"
+              className="group relative h-[500px] rounded-[28px] overflow-hidden bg-[#0D0D0D] border border-white/5 cursor-crosshair"
             >
               {/* Image Layer */}
               <div className="absolute inset-0">

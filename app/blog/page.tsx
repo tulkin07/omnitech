@@ -215,14 +215,14 @@ export default function Blog() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ delay: i * 0.1 }}
-                  className="group relative bg-[#0D0D0D] border border-white/5 rounded-[40px] overflow-hidden hover:border-[#0ABAB5]/30 transition-all duration-700"
+                  className="group relative bg-[#0D0D0D] border border-white/5 rounded-[20px] overflow-hidden hover:border-[#0ABAB5]/30 transition-all duration-700"
                 >
                   <div className="flex flex-col lg:flex-row h-full">
                     <div className="lg:w-1/3 h-64 lg:h-auto overflow-hidden">
                       <img
                         src={post.image}
                         alt={post.title}
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000 opacity-50 group-hover:opacity-100"
+                        className="w-full h-full object-cover grayscale-0 group-hover:grayscale group-hover:scale-110 transition-all duration-1000 opacity-50 group-hover:opacity-100"
                       />
                       <div className="absolute top-6 left-6 lg:hidden">
                         <span className="bg-black/60 backdrop-blur-md px-3 py-1 rounded-lg text-[#0ABAB5] text-[10px] font-bold uppercase">
@@ -231,7 +231,7 @@ export default function Blog() {
                       </div>
                     </div>
 
-                    <div className="lg:w-2/3 p-10 flex flex-col justify-between">
+                    <div className="lg:w-2/3 p-5 flex flex-col justify-between">
                       <div>
                         <span className="hidden lg:inline-block text-[#0ABAB5] text-[9px] font-black uppercase tracking-[4px] mb-4">
                           {post.category}
@@ -239,7 +239,7 @@ export default function Blog() {
                         <h3 className="text-2xl font-bold leading-tight mb-4 group-hover:text-[#0ABAB5] transition-colors">
                           {post.title}
                         </h3>
-                        <p className="text-gray-500 text-sm line-clamp-3 font-light mb-6">
+                        <p className="text-gray-500 text-sm line-clamp-3 font-light ">
                           {post.excerpt}
                         </p>
                       </div>

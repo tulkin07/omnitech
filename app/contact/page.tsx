@@ -83,7 +83,7 @@ export default function Contact() {
           {/* LEFT COLUMN: STATUS & INFO */}
           <div className="lg:col-span-4 space-y-6">
             {/* System Status Card */}
-            <div className="bg-[#0D0D0D] border border-white/5 p-8 rounded-[40px] relative overflow-hidden group">
+            <div className="bg-[#0D0D0D] border border-white/5 p-8 rounded-[20px] relative overflow-hidden group">
               <Terminal
                 className="absolute -right-4 -bottom-4 text-white/5 group-hover:text-[#0ABAB5]/10 transition-colors"
                 size={140}
@@ -113,7 +113,7 @@ export default function Contact() {
                 <motion.div
                   key={idx}
                   whileHover={{ x: 10 }}
-                  className="bg-[#0D0D0D] border border-white/5 p-6 rounded-[30px] flex items-center gap-5 group transition-all"
+                  className="bg-[#0D0D0D] border border-white/5 p-6 rounded-[20px] flex items-center gap-5 group transition-all"
                 >
                   <div
                     className={`p-4 rounded-2xl bg-white/5 ${card.color} group-hover:bg-[#0ABAB5] group-hover:text-black transition-all duration-500`}
@@ -135,7 +135,7 @@ export default function Contact() {
 
           {/* RIGHT COLUMN: THE INTERFACE (FORM) */}
           <div className="lg:col-span-8">
-            <div className="bg-[#0D0D0D] border border-white/5 rounded-[50px] p-8 md:p-16 relative overflow-hidden backdrop-blur-md">
+            <div className="bg-[#0D0D0D] border border-white/5 rounded-[20px] p-8 md:p-16 relative overflow-hidden backdrop-blur-md">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#0ABAB5] to-transparent opacity-20" />
 
               <AnimatePresence mode="wait">

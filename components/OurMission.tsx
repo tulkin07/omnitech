@@ -36,7 +36,7 @@ export default function OurMission() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="lg:col-span-2 relative group overflow-hidden bg-[#0a0a0a] border border-white/5 p-10 md:p-16 rounded-[48px] flex flex-col justify-between transition-all duration-500 hover:border-[#0ABAB5]/20"
+          className="lg:col-span-2 relative group overflow-hidden bg-[#0a0a0a] border border-white/5 p-10 md:p-16 rounded-[28px] flex flex-col justify-between transition-all duration-500 hover:border-[#0ABAB5]/20"
         >
           {/* Spotlight effekti (Hover bo'lganda rasm ustida nur yurgandek bo'ladi) */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#0ABAB5]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -83,7 +83,7 @@ export default function OurMission() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             whileHover={{ y: -5 }}
-            className="bg-[#0D0D0D] border border-white/5 p-10 rounded-[40px] flex-1 relative overflow-hidden group transition-all"
+            className="bg-[#0D0D0D] border border-white/5 p-10 rounded-[20px] flex-1 relative overflow-hidden group transition-all"
           >
             
             <div className="relative z-10">
@@ -107,7 +107,7 @@ export default function OurMission() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="bg-[#0D0D0D] border border-white/5 p-10 rounded-[40px] flex-1 group hover:border-[#0ABAB5]/10 transition-all"
+            className="bg-[#0D0D0D] border border-white/5 p-10 rounded-[20px] flex-1 group hover:border-[#0ABAB5]/10 transition-all"
           >
             <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
               Core Values

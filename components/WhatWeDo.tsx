@@ -93,7 +93,7 @@ export default function WhatWeDo() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ y: -10 }}
-              className={`group relative p-10 rounded-[40px] border border-white/5 bg-[#080808] transition-all duration-500 hover:bg-[#0c0c0c] hover:border-[#0ABAB5]/20 ${
+              className={`group relative p-10 rounded-[20px] border border-white/5 bg-[#080808] transition-all duration-500 hover:bg-[#0c0c0c] hover:border-[#0ABAB5]/20 ${
                 i === 0 ? "md:col-span-2" : ""
               }`}
             >
@@ -129,7 +129,7 @@ export default function WhatWeDo() {
           {/* Special CTA Card */}
           <motion.div
             whileHover={{ scale: 0.98 }}
-            className="p-10 rounded-[40px] bg-gradient-to-br from-[#0ABAB5] to-[#088f8a] flex flex-col justify-center items-center text-center group cursor-pointer relative overflow-hidden"
+            className="p-10 rounded-[20px] bg-gradient-to-br from-[#0ABAB5] to-[#088f8a] flex flex-col justify-center items-center text-center group cursor-pointer relative overflow-hidden"
           >
              <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity" />
              <div className="relative z-10">

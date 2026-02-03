@@ -58,7 +58,7 @@ export default function Career() {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="relative p-12 md:p-24 rounded-[50px] bg-[#0D0D0D] border border-white/10 overflow-hidden"
+            className="relative p-12 md:p-24 rounded-[20px] bg-[#0D0D0D] border border-white/10 overflow-hidden"
           >
             <div className="relative z-10 flex flex-col items-start text-left">
               <div className="w-20 h-20 rounded-3xl bg-white/[0.03] border border-white/10 flex items-center justify-center mb-8 text-[#0ABAB5]">
@@ -83,7 +83,7 @@ export default function Career() {
           </motion.div>
         ) : (
           /* ACTIVE VACANCIES LIST */
-          <div className="grid grid-cols-1 gap-[1px] bg-white/5 border border-white/5 overflow-hidden rounded-[40px]">
+          <div className="grid grid-cols-1 gap-[1px] bg-white/5 border border-white/5 overflow-hidden rounded-[20px]">
             {vacancies.map((job, i) => (
               <motion.div
                 key={i}

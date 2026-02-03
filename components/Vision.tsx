@@ -32,7 +32,7 @@ export default function Vision() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative bg-[#0D0D0D] border border-white/5 rounded-[60px] p-10 md:p-20 mb-10 flex flex-col lg:flex-row items-center gap-16 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,1)]"
+          className="relative bg-[#0D0D0D] border border-white/5 rounded-[30px] p-10 md:p-20 mb-10 flex flex-col lg:flex-row items-center gap-16 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,1)]"
         >
           {/* Orqa fondagi harakatlanuvchi Glow (Nafis nur) */}
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#0ABAB5]/5 blur-[120px] rounded-full pointer-events-none" />
@@ -114,7 +114,7 @@ export default function Vision() {
               transition={{ delay: i * 0.2 }}
               viewport={{ once: true }}
               whileHover={{ y: -12 }}
-              className="group relative bg-[#0D0D0D] border border-white/5 p-12 rounded-[45px] transition-all duration-500 overflow-hidden"
+              className="group relative bg-[#0D0D0D] border border-white/5 p-12 rounded-[25px] transition-all duration-500 overflow-hidden"
             >
               {/* Hoverda chiqadigan Neon top line */}
               <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#0ABAB5] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

@@ -52,7 +52,7 @@ export default function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: (i % 5) * 0.1 }}
               viewport={{ once: true }}
-              className={`group relative rounded-[40px] overflow-hidden border border-[#0ABAB5]/30 bg-[#0D0D0D] transition-all duration-500 hover:scale-[0.98] hover:border-white/20
+              className={`group relative rounded-[20px] overflow-hidden border border-[#0ABAB5]/30 bg-[#0D0D0D] transition-all duration-500 hover:scale-[0.98] hover:border-white/20
                 ${project.size === "large" ? "md:col-span-2 md:row-span-2" : ""}
                 ${project.size === "medium" ? "md:col-span-2 md:row-span-1" : ""}
                 ${project.size === "small" ? "md:col-span-1 md:row-span-1" : ""}

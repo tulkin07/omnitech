@@ -122,7 +122,7 @@ export default function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
-              className={`group relative rounded-[50px] overflow-hidden border border-white/5 bg-[#0D0D0D] transition-all duration-700 hover:border-[#0ABAB5]/30 ${
+              className={`group relative rounded-[20px] overflow-hidden border border-white/5 bg-[#0D0D0D] transition-all duration-700 hover:border-[#0ABAB5]/30 ${
                 project.size === "large" ? "md:col-span-2" : "md:col-span-1"
               }`}
             >

@@ -56,7 +56,7 @@ export default function About() {
 
           <div className="grid grid-cols-2 gap-6">
             {stats.map((stat, i) => (
-              <div key={i} className="bg-[#0D0D0D] border border-white/5 p-10 rounded-[40px] hover:bg-[#111] hover:border-[#0ABAB5]/30 transition-all group">
+              <div key={i} className="bg-[#0D0D0D] border border-white/5 p-10 rounded-[20px] hover:bg-[#111] hover:border-[#0ABAB5]/30 transition-all group">
                 <div className="text-gray-500 group-hover:text-[#0ABAB5] mb-6 transition-colors">{stat.icon}</div>
                 <div className="text-4xl font-black mb-2 tracking-tighter">{stat.value}</div>
                 <div className="text-[10px] text-gray-600 font-bold uppercase tracking-widest">{stat.label}</div>
@@ -73,7 +73,7 @@ export default function About() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {capabilities.map((cap, i) => (
-              <div key={i} className="p-12 bg-[#0D0D0D] border border-white/5 rounded-[48px] relative overflow-hidden group">
+              <div key={i} className="p-12 bg-[#0D0D0D] border border-white/5 rounded-[28px] relative overflow-hidden group">
                 <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center mb-10 group-hover:bg-[#0ABAB5]/10 transition-all">
                   {cap.icon}
                 </div>
@@ -86,7 +86,7 @@ export default function About() {
 
         {/* --- STRATEGIC MISSION & RECOGNITION --- */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-40">
-          <div className="lg:col-span-8 bg-[#0D0D0D] border border-white/5 p-16 rounded-[60px] relative overflow-hidden">
+          <div className="lg:col-span-8 bg-[#0D0D0D] border border-white/5 p-16 rounded-[20px] relative overflow-hidden">
             <Layers className="absolute -right-20 -bottom-20 text-white/[0.02]" size={400} />
             <div className="relative z-10">
               <h3 className="text-4xl font-bold mb-8 uppercase tracking-tighter">Strategic Roadmap</h3>
@@ -103,7 +103,7 @@ export default function About() {
             </div>
           </div>
           
-          <div className="lg:col-span-4 bg-[#0ABAB5] p-16 rounded-[60px] text-black flex flex-col justify-between">
+          <div className="lg:col-span-4 bg-[#0ABAB5] p-16 rounded-[20px] text-black flex flex-col justify-between">
             <div>
               <Award size={50} strokeWidth={2.5} className="mb-8" />
               <h3 className="text-3xl font-black uppercase leading-none mb-6">Intelligence Award 2024</h3>
@@ -118,7 +118,7 @@ export default function About() {
         </div>
 
         {/* --- GLOBAL PARTNERSHIP & INFRASTRUCTURE --- */}
-        <div className="bg-[#0D0D0D] border border-white/5 rounded-[70px] p-16 md:p-24 text-center relative overflow-hidden">
+        <div className="bg-[#0D0D0D] border border-white/5 rounded-[30px] p-16 md:p-24 text-center relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(10,186,181,0.1)_0%,_transparent_70%)] opacity-50" />
           <Globe className="mx-auto text-[#0ABAB5] mb-12 opacity-80" size={64} />
           <h2 className="text-5xl md:text-7xl font-black mb-10 relative z-10 uppercase tracking-tighter">

@@ -96,7 +96,7 @@ export default function Services() {
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
               className="group relative bg-[#0D0D0D] p-12 h-[540px] flex flex-col justify-between 
-                         rounded-[40px] border border-white/10 transition-all duration-500 
+                         rounded-[20px] border border-white/10 transition-all duration-500 
                          hover:border-[#0ABAB5]/50 hover:shadow-[0_0_30px_rgba(10,186,181,0.1)] 
                          overflow-hidden"
             >

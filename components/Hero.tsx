@@ -79,7 +79,7 @@ export default function Hero() {
         {/* 4. BOTTOM PANELS (Responsive Grid) */}
         <div className="absolute bottom-10 w-full max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-6 px-10">
           {/* 98.2% Card */}
-          <div className="bg-[#0a0a0a]/60 border border-white/5 p-8 rounded-[40px] backdrop-blur-2xl text-left border-b-0">
+          <div className="bg-[#0a0a0a]/60 border border-white/5 p-8 rounded-[20px] backdrop-blur-2xl text-left border-b-0">
             <div className="text-4xl font-light mb-1">
               98.2% <span className="text-xs text-[#0ABAB5]">↗</span>
             </div>
@@ -103,7 +103,7 @@ export default function Hero() {
           </div>
 
           {/* Icons Card */}
-          <div className="bg-[#0a0a0a]/60 border border-white/5 p-8 rounded-[40px] backdrop-blur-2xl flex flex-wrap gap-6 justify-center items-center">
+          <div className="bg-[#0a0a0a]/60 border border-white/5 p-8 rounded-[20px] backdrop-blur-2xl flex flex-wrap gap-6 justify-center items-center">
   {[
     <Cpu size={18} strokeWidth={1.5} />, 
     <Fingerprint size={18} strokeWidth={1.5} />, 

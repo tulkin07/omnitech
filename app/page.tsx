@@ -143,7 +143,7 @@ export default function HomePage() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="relative w-full max-w-7xl bg-[#0D0D0D] border border-white/5 rounded-[48px] p-12 md:p-24 overflow-hidden text-center"
+          className="relative w-full max-w-7xl bg-[#0D0D0D] border border-white/5 rounded-[28px] p-12 md:p-24 overflow-hidden text-center"
         >
           {/* FON EFFEKTI (Tiffany Glow) */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[#0ABAB5] opacity-[0.05] blur-[120px] rounded-full" />

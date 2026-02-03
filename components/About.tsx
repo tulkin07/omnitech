@@ -14,7 +14,7 @@ const About = () => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative z-10 w-[85%] h-[550px] rounded-[40px] overflow-hidden border border-white/10"
+            className="relative z-10 w-[85%] h-[550px] rounded-[20px] overflow-hidden border border-white/10"
           >
             <img
               src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1974" 
@@ -27,7 +27,7 @@ const About = () => {
           <motion.div
             animate={{ y: [0, -20, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-20 -right-4 z-20 w-[200px] h-[250px] rounded-[30px] overflow-hidden border-4 border-[#000] shadow-2xl"
+            className="absolute top-20 -right-4 z-20 w-[200px] h-[250px] rounded-[20px] overflow-hidden border-4 border-[#000] shadow-2xl"
           >
             <img
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070"
