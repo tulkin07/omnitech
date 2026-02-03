@@ -138,7 +138,7 @@ export default function Blog() {
   );
 
   return (
-    <section className="bg-[#050505] min-h-screen py-20 sm:py-28 lg:py-32 px-4 sm:px-6 text-white relative overflow-hidden">
+    <section className="bg-[#050505] min-h-screen py-24 sm:py-28 lg:py-32 px-4 sm:px-6 text-white relative overflow-hidden">
       {/* BACKGROUND GLOW */}
       <div className="absolute top-0 right-0 w-72 sm:w-[500px] h-72 sm:h-[500px] bg-[#0ABAB5]/5 blur-[120px] rounded-full -mr-40 -mt-40" />
       <div className="absolute bottom-0 left-0 w-64 sm:w-[400px] h-64 sm:h-[400px] bg-[#0ABAB5]/5 blur-[100px] rounded-full -ml-32 -mb-32" />

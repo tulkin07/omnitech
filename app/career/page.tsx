@@ -24,7 +24,7 @@ export default function Career() {
   const isEmpty = vacancies.length === 0;
 
   return (
-    <section className="bg-[#050505] py-16 sm:py-24 lg:py-32 px-4 sm:px-6 text-white selection:bg-[#0ABAB5]/30">
+    <section className="bg-[#050505] py-24 sm:py-24 lg:py-32 px-4 sm:px-6 text-white selection:bg-[#0ABAB5]/30">
       <div className="max-w-7xl mx-auto">
 
         {/* HEADER */}

@@ -64,7 +64,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="bg-[#050505] py-16 sm:py-24 lg:py-32 px-4 sm:px-6 text-white">
+    <section className="bg-[#050505] py-24 sm:py-24 lg:py-32 px-4 sm:px-6 text-white">
       <div className="max-w-7xl mx-auto">
 
         {/* HEADER */}

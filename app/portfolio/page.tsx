@@ -24,7 +24,7 @@ const projects = [
 
 export default function Portfolio() {
   return (
-    <section className="bg-[#050505] py-32 px-6 text-white font-sans overflow-hidden">
+    <section className="bg-[#050505] py-24 px-6 text-white font-sans overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
         {/* HEADER */}

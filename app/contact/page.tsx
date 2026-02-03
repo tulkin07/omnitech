@@ -45,7 +45,7 @@ export default function Contact() {
   ];
 
   return (
-    <section className="bg-[#050505] py-20 sm:py-28 lg:py-32 px-4 sm:px-6 text-white font-sans relative overflow-hidden selection:bg-[#0ABAB5]/30">
+    <section className="bg-[#050505] py-24 sm:py-28 lg:py-32 px-4 sm:px-6 text-white font-sans relative overflow-hidden selection:bg-[#0ABAB5]/30">
       {/* Dynamic Cyber Grid Background */}
       <div
         className="absolute inset-0 opacity-10 pointer-events-none"

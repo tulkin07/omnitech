@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Button from "./ui/Button";
 import { Cpu, Database, Fingerprint, Network, ShieldCheck } from "lucide-react";
+import Link from "next/link";
 
 export default function Hero() {
   const navLinks = ["About us", "Services", "Portfolio", "Career", "Blog"];
@@ -67,14 +68,16 @@ export default function Hero() {
 
         {/* Subtitle */}
         <p className="text-gray-500 text-[10px] sm:text-[11px] md:text-[13px] max-w-xs sm:max-w-xl md:max-w-2xl mb-8 sm:mb-12 tracking-[1px] sm:tracking-[2px] uppercase leading-relaxed">
-          OmniTech empowers global enterprises with scalable, secure, and intelligent technology solutions designed for the next generation of business.
+          OmniTech empowers global enterprises with scalable, secure, and
+          intelligent technology solutions designed for the next generation of
+          business.
         </p>
 
         {/* CTA Button */}
         {/* <Button className="py-3 sm:py-4 px-6 sm:px-10 mb-10" text="View Portfolio" /> */}
 
         {/* BOTTOM PANELS */}
-        <div className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 px-4 sm:px-10">
+        <div className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 px-4 sm:px-10 bg-[#050505]">
           {/* 98.2% Card */}
           <div className="bg-[#0a0a0a]/60 border border-white/5 p-6 sm:p-8 rounded-2xl backdrop-blur-2xl text-left">
             <div className="text-2xl sm:text-3xl md:text-4xl font-light mb-1">
@@ -84,27 +87,35 @@ export default function Hero() {
               Spots . WorldWide
             </div>
             <p className="text-gray-500 text-[10px] sm:text-[11px] md:text-[12px] leading-relaxed">
-              Innovative blockchain technology meets financial expertise to empower your investment journey.
+              Innovative blockchain technology meets financial expertise to
+              empower your investment journey.
             </p>
           </div>
 
           {/* Center Button */}
           <div className="flex items-center justify-center">
-            <Button className="py-3 sm:py-4 px-6 sm:px-10" text="View Portfolio" />
+            <Link href="/portfolio">
+              <Button
+                className="py-3 sm:py-4 px-6 sm:px-10"
+                text="View Portfolio"
+              />
+            </Link>
           </div>
 
           {/* Icons Card */}
           <div className="bg-[#0a0a0a]/60 border border-white/5 p-4 sm:p-8 rounded-2xl backdrop-blur-2xl flex flex-wrap gap-3 sm:gap-6 justify-center items-center">
-            {[Cpu, Fingerprint, Network, Database, ShieldCheck].map((Icon, i) => (
-              <div
-                key={i}
-                className="group w-8 h-8 sm:w-10 sm:h-10 rounded-xl border border-white/5 bg-white/[0.02] flex items-center justify-center hover:text-gray-600 text-[#0ABAB5] hover:border-[#0ABAB5]/30 hover:bg-[#0ABAB5]/5 transition-all duration-500 cursor-pointer"
-              >
-                <div className="group-hover:scale-110 group-hover:rotate-[360deg] transition-all duration-700">
-                  <Icon size={14} sm={18} strokeWidth={1.5} />
+            {[Cpu, Fingerprint, Network, Database, ShieldCheck].map(
+              (Icon, i) => (
+                <div
+                  key={i}
+                  className="group w-8 h-8 sm:w-10 sm:h-10 rounded-xl border border-white/5 bg-white/[0.02] flex items-center justify-center hover:text-gray-600 text-[#0ABAB5] hover:border-[#0ABAB5]/30 hover:bg-[#0ABAB5]/5 transition-all duration-500 cursor-pointer"
+                >
+                  <div className="group-hover:scale-110 group-hover:rotate-[360deg] transition-all duration-700">
+                    <Icon size={14} sm={18} strokeWidth={1.5} />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ),
+            )}
           </div>
         </div>
       </div>
