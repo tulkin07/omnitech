@@ -4,17 +4,18 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <section className="bg-[#000000] py-24 px-6 overflow-hidden min-h-screen flex items-center">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+    <section className="bg-[#000000] py-16 md:py-24 px-6 overflow-hidden min-h-screen flex items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         
-        {/* LEFT SIDE: CREATIVE IMAGE STACK (Rasmdagi kabi) */}
-        <div className="relative">
+        {/* LEFT SIDE: CREATIVE IMAGE STACK */}
+        <div className="relative order-2 lg:order-1">
           {/* Asosiy katta rasm */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative z-10 w-[85%] h-[550px] rounded-[20px] overflow-hidden border border-white/10"
+            className="relative z-10 w-full sm:w-[85%] h-[400px] md:h-[550px] rounded-[20px] overflow-hidden border border-white/10"
           >
             <img
               src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1974" 
@@ -23,11 +24,11 @@ const About = () => {
             />
           </motion.div>
 
-          {/* Floating rasm 1 */}
+          {/* Floating rasm 1 - Mobil versiyada o'lchami kichraytirildi */}
           <motion.div
-            animate={{ y: [0, -20, 0] }}
+            animate={{ y: [0, -15, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-20 -right-4 z-20 w-[200px] h-[250px] rounded-[20px] overflow-hidden border-4 border-[#000] shadow-2xl"
+            className="absolute top-10 -right-2 sm:-right-4 z-20 w-[140px] md:w-[200px] h-[180px] md:h-[250px] rounded-[20px] overflow-hidden border-4 border-[#000] shadow-2xl hidden sm:block"
           >
             <img
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070"
@@ -36,12 +37,12 @@ const About = () => {
             />
           </motion.div>
 
-          {/* Aylanuvchi matn effekti (Rasmdagi aylana matn) */}
-          <div className="absolute -top-10 right-[0] z-10">
+          {/* Aylanuvchi matn effekti */}
+          <div className="absolute -top-6 right-0 sm:-right-10 z-10 scale-75 md:scale-100">
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-              className="relative w-40 h-40 flex items-center justify-center"
+              className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center"
             >
               <svg viewBox="0 0 100 100" className="w-full h-full">
                 <path
@@ -49,7 +50,7 @@ const About = () => {
                   d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
                   fill="none"
                 />
-                <text className="text-[10px] uppercase font-bold tracking-[2px] fill-[#0ABAB5]/70">
+                <text className="text-[9px] uppercase font-bold tracking-[2px] fill-[#0ABAB5]">
                   <textPath xlinkHref="#circlePath">
                     Innovative Minds • Building Future • Friendly Team • 
                   </textPath>
@@ -58,66 +59,54 @@ const About = () => {
             </motion.div>
           </div>
 
-          {/* Statistik ko'rsatkich (Pastki qism) */}
-          <div className="mt-10 flex items-baseline gap-4">
-            <span className="text-7xl font-bold text-white tracking-tighter">20+</span>
-            <div className="text-[#0ABAB5] font-bold text-sm tracking-widest uppercase">
-              Years of <br /> Innovation
+          {/* Statistik ko'rsatkich */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-8 md:mt-12 flex items-center justify-center sm:justify-start gap-4"
+          >
+            <span className="text-6xl md:text-8xl font-bold text-white tracking-tighter">10+</span>
+            <div className="text-[#0ABAB5] font-bold text-xs md:text-sm tracking-widest uppercase leading-tight">
+              Years of <br /> Digital Mastery
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* RIGHT SIDE: CONTENT */}
-        <div className="text-white">
+        <div className="text-white order-1 lg:order-2">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="flex items-center gap-3 mb-6"
+            viewport={{ once: true }}
+            className="flex items-center gap-3 mb-4 md:mb-6"
           >
-            <div className="w-10 h-[1px] bg-[#0ABAB5]" />
-            <span className="text-[#0ABAB5] text-[10px] font-black tracking-[4px] uppercase">
-              Our Journey
+            <div className="w-8 md:w-12 h-[1px] bg-[#0ABAB5]" />
+            <span className="text-[#0ABAB5] text-[10px] md:text-xs font-black tracking-[4px] uppercase">
+              Our Identity
             </span>
           </motion.div>
 
-          <h2 className="text-6xl md:text-8xl font-medium tracking-tight mb-10 leading-[0.9]">
-            Who <br /> <span className="text-[#0ABAB5]">We Are</span>
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight mb-6 md:mb-10 leading-[1] md:leading-[0.9]">
+            Architects of <br /> <span className="text-[#0ABAB5]">Digital Value</span>
           </h2>
 
-          <p className="text-gray-400 text-lg leading-relaxed mb-12 max-w-xl">
-            We are a team of passionate innovators specialized in creating bespoke digital experiences. 
-            We don't just build software; we craft lasting partnerships and scalable technological ecosystems 
-            that drive global enterprises forward.
+          <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-8 md:mb-12 max-w-xl">
+            Biz shunchaki kod yozmaymiz, biz sizning g'oyalaringizni barqaror raqamli ekotizimga aylantiramiz. 
+            Omnitech jamoasi xalqaro tajriba va innovatsion yondashuvni birlashtirib, 
+            global miqyosdagi murakkab biznes muammolaringizga zamonaviy yechimlar topadi.
           </p>
 
-          {/* Key Points - Grid */}
-          {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <div className="flex items-start gap-4">
-              <div className="p-3 bg-[#0ABAB5]/10 rounded-2xl text-[#0ABAB5] text-xl">🚀</div>
-              <div>
-                <h4 className="font-bold text-lg">Rapid Solutions</h4>
-                <p className="text-gray-500 text-sm mt-1">Agile development and high-speed deployment.</p>
-              </div>
+          <div className="grid grid-cols-2 gap-6 border-t border-white/10 pt-8">
+            <div>
+              <h4 className="text-[#0ABAB5] font-bold uppercase text-xs tracking-wider mb-2">Our Vision</h4>
+              <p className="text-gray-500 text-sm">Dunyo miqyosidagi texnologik inqilobning bir qismi bo'lish.</p>
             </div>
-            <div className="flex items-start gap-4">
-              <div className="p-3 bg-[#0ABAB5]/10 rounded-2xl text-[#0ABAB5] text-xl">⚙️</div>
-              <div>
-                <h4 className="font-bold text-lg">Tailored Projects</h4>
-                <p className="text-gray-500 text-sm mt-1">Custom-built to solve unique challenges.</p>
-              </div>
+            <div>
+              <h4 className="text-[#0ABAB5] font-bold uppercase text-xs tracking-wider mb-2">Our Mission</h4>
+              <p className="text-gray-500 text-sm">Biznesingizni aqlli va avtomatlashgan tizimlar bilan ta'minlash.</p>
             </div>
-          </div> */}
-
-          {/* Buttons */}
-          {/* <div className="flex flex-wrap gap-5">
-            <button className="px-8 py-4 bg-[#0ABAB5] text-black font-bold rounded-2xl hover:bg-white transition-all flex items-center gap-2 group">
-              Explore Our Values
-              <span className="group-hover:translate-x-1 transition-transform">↗</span>
-            </button>
-            <button className="px-8 py-4 border border-white/20 text-white font-bold rounded-2xl hover:bg-white/5 transition-all">
-              Meet The Team
-            </button>
-          </div> */}
+          </div>
         </div>
 
       </div>

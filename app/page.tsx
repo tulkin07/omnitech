@@ -106,8 +106,8 @@ export default function HomePage() {
   return (
     <main>
       <Hero />
-      <section className="relative z-[110] bg-[#050505] border-t border-white/5 py-24">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-y-12 md:gap-y-0">
+      <section className="relative z-[110] bg-[#050505] border-t border-white/5 py-16 sm:py-20 lg:py-24">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-10 sm:gap-y-12 md:gap-y-0">
           {statsData.map((stat, i) => (
             <motion.div
               key={i}
@@ -115,17 +115,22 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className={`flex flex-col items-center md:items-start px-10 ${
+              className={`flex flex-col items-center sm:items-center md:items-start px-6 sm:px-10 ${
                 i !== statsData.length - 1 ? "md:border-r border-white/10" : ""
               }`}
             >
-              <span className="text-[#0ABAB5] text-5xl mb-6 opacity-60">
+              {/* Icon */}
+              <span className="text-[#0ABAB5] text-4xl sm:text-5xl mb-4 sm:mb-6 opacity-60">
                 {stat.icon}
               </span>
-              <h2 className="text-5xl font-bold mb-3 tracking-tighter text-white">
+
+              {/* Value */}
+              <h2 className="text-4xl sm:text-5xl font-bold mb-2 sm:mb-3 tracking-tighter text-white">
                 {stat.value}
               </h2>
-              <p className="text-gray-500 text-[10px] font-bold tracking-[3px] uppercase">
+
+              {/* Label */}
+              <p className="text-gray-500 text-[9px] sm:text-[10px] font-bold tracking-[2px] sm:tracking-[3px] uppercase text-center md:text-left">
                 {stat.label}
               </p>
             </motion.div>
@@ -135,39 +140,44 @@ export default function HomePage() {
       <About />
       <OurMission />
       <WhatWeDo />
-     <Team/>
-     <Vision/>
-     <Portfolio/>
+      <Team />
+      <Vision />
+      <Portfolio />
       <section className="bg-[#050505] py-24 px-6 flex justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="relative w-full max-w-7xl bg-[#0D0D0D] border border-white/5 rounded-[28px] p-12 md:p-24 overflow-hidden text-center"
+          transition={{ duration: 0.8 }}
+          className="relative w-full max-w-7xl bg-[#0D0D0D] border border-white/5 rounded-[28px] p-12 md:p-24 overflow-hidden text-center shadow-[0_0_50px_rgba(0,0,0,0.5)]"
         >
           {/* FON EFFEKTI (Tiffany Glow) */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[#0ABAB5] opacity-[0.05] blur-[120px] rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-gradient-to-r from-[#0ABAB5]/20 via-[#7C3AED]/10 to-[#0ABAB5]/10 blur-[120px] rounded-full pointer-events-none" />
 
           {/* CONTENT */}
           <div className="relative z-10 flex flex-col items-center">
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-8 leading-tight">
+            <h2 className="text-2xl md:text-6xl font-bold tracking-tight text-white mb-8 leading-tight">
               Ready to Transform <br /> Your Digital Future?
             </h2>
 
-            <p className="text-gray-500 text-base md:text-lg max-w-2xl mb-12 leading-relaxed">
+            <p className="text-gray-500 text-base md:text-lg max-w-3xl mb-12 leading-relaxed">
               Let’s build something extraordinary together. Reach out to our
               experts and discover how OmniTech can elevate your business with
               bespoke technological solutions.
-            </p>
-
-            {/* GRADIENT BUTTON (Rasmdagi kabi Tiffany to Purple/Blue) */}
-
-            <Button text=" Get in Touch" />
+            </p>  
+            <div className="flex items-center justify-center">
+              <Button
+                className="py-3 sm:py-4 px-6 sm:px-10"
+                text="Get in Touch"
+              />
+            </div>
           </div>
 
           {/* DEKORATIV ELEMENTLAR */}
-          <div className="absolute top-10 left-10 w-2 h-2 bg-[#0ABAB5]/20 rounded-full" />
-          <div className="absolute bottom-10 right-10 w-3 h-3 bg-[#7C3AED]/20 rounded-full" />
+          <div className="absolute top-10 left-10 w-2 h-2 bg-[#0ABAB5]/20 rounded-full animate-pulse" />
+          <div className="absolute bottom-10 right-10 w-3 h-3 bg-[#7C3AED]/20 rounded-full animate-pulse" />
+          <div className="absolute top-20 right-20 w-5 h-5 bg-[#0ABAB5]/10 rounded-full animate-ping" />
+          <div className="absolute bottom-24 left-24 w-4 h-4 bg-[#7C3AED]/10 rounded-full animate-ping" />
         </motion.div>
       </section>
     </main>

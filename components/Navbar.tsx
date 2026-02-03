@@ -6,12 +6,13 @@ import Link from "next/link";
 import { FiMenu, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "./ui/Button";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeLink, setActiveLink] = useState("Home");
 
+  const pathname = usePathname();
   const TIF = "#0ABAB5";
 
   const links = [
@@ -24,6 +25,11 @@ export default function Navbar() {
     { name: "Contact", href: "contact" },
   ];
 
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(`/${href}`);
+  };
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
@@ -33,37 +39,37 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ${
-        isScrolled 
-          ? "py-3 bg-black/60 backdrop-blur-xl border-b border-white/10" 
+        isScrolled
+          ? "py-3 bg-black/60 backdrop-blur-xl border-b border-white/10"
           : "py-6 bg-transparent"
       }`}
     >
       <Container>
         <div className="flex items-center justify-between relative">
-          
-          {/* 1. LOGO */}
+          {/* LOGO */}
           <Link href="/" className="group flex items-center gap-2 z-[110]">
             <div className="relative">
-               <div className="w-8 h-8 border-2 border-[#0ABAB5] rounded-lg rotate-45 group-hover:rotate-180 transition-transform duration-700" />
-               <div className="absolute inset-0 w-8 h-8 bg-[#0ABAB5]/20 blur-md rounded-full" />
+              <div className="w-8 h-8 border-2 border-[#0ABAB5] rounded-lg rotate-45 group-hover:rotate-180 transition-transform duration-700" />
+              <div className="absolute inset-0 w-8 h-8 bg-[#0ABAB5]/20 blur-md rounded-full" />
             </div>
             <span className="text-xl font-bold tracking-tighter text-white">
               OMNI<span style={{ color: TIF }}>TECH</span>
             </span>
           </Link>
 
-          {/* 2. DESKTOP MENU (Kreativ Hover & Active) */}
+          {/* DESKTOP MENU */}
           <div className="hidden lg:flex items-center bg-white/5 border border-white/10 px-2 py-1.5 rounded-full backdrop-blur-md relative">
             {links.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                onClick={() => setActiveLink(link.name)}
                 className={`relative px-5 py-2 text-sm font-medium transition-colors duration-300 uppercase ${
-                  activeLink === link.name ? "text-white" : "text-gray-400 hover:text-white"
+                  isActive(link.href)
+                    ? "text-white"
+                    : "text-gray-400 hover:text-white"
                 }`}
               >
-                {activeLink === link.name && (
+                {isActive(link.href) && (
                   <motion.div
                     layoutId="activeTab"
                     className="absolute inset-0 bg-[#0ABAB5] rounded-full z-[-1]"
@@ -75,20 +81,13 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* 3. PHONE & BUTTON */}
+          {/* DESKTOP BUTTON */}
           <div className="hidden lg:flex items-center gap-8">
-
-            {/* <button 
-              className="relative overflow-hidden group px-7 py-3 rounded-full bg-white text-black font-bold text-sm transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(10,186,181,0.2)]"
-            >
-              <span className="relative z-10">Get Started</span>
-              <div className="absolute inset-0 bg-[#0ABAB5] translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-0" />
-            </button> */}
-            <Button/>
+            <Button />
           </div>
 
-          {/* 4. MOBILE TOGGLE */}
-          <button 
+          {/* MOBILE TOGGLE */}
+          <button
             className="lg:hidden p-2 text-white z-[110]"
             onClick={() => setIsOpen(!isOpen)}
           >
@@ -97,7 +96,7 @@ export default function Navbar() {
         </div>
       </Container>
 
-      {/* 5. MOBILE MENU (Full Overlay) */}
+      {/* MOBILE MENU */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -118,20 +117,16 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-2xl font-semibold hover:text-[#0ABAB5] transition-colors"
+                    className={`text-2xl font-semibold transition-colors ${
+                      isActive(link.href)
+                        ? "text-[#0ABAB5]"
+                        : "hover:text-[#0ABAB5]"
+                    }`}
                   >
                     {link.name}
                   </Link>
                 </motion.div>
               ))}
-              {/* <motion.button
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
-                className="mt-10 px-8 py-3 border-2 border-[#0ABAB5] text-[#0ABAB5] rounded-full text-xl font-bold uppercase tracking-widest hover:bg-[#0ABAB5] hover:text-black transition-all"
-              >
-                Get Started
-              </motion.button> */}
             </div>
           </motion.div>
         )}

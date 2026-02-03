@@ -8,11 +8,9 @@ import {
   ArrowUpRight,
   ChevronLeft,
   ChevronRight,
-  Globe2,
   Sparkles,
 } from "lucide-react";
 
-// Updated Categories from your request
 const categories = [
   "All Stories",
   "Holidays",
@@ -136,55 +134,55 @@ export default function Blog() {
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
   const currentPosts = filteredPosts.slice(
     (currentPage - 1) * postsPerPage,
-    currentPage * postsPerPage,
+    currentPage * postsPerPage
   );
 
   return (
-    <section className="bg-[#050505] py-32 px-6 text-white font-sans overflow-hidden min-h-screen relative">
-      {/* BACKGROUND GLOBE ELEMENT (Reflects your first image) */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#0ABAB5]/5 blur-[120px] rounded-full -mr-64 -mt-32 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#0ABAB5]/5 blur-[100px] rounded-full -ml-32 -mb-32 pointer-events-none" />
+    <section className="bg-[#050505] min-h-screen py-20 sm:py-28 lg:py-32 px-4 sm:px-6 text-white relative overflow-hidden">
+      {/* BACKGROUND GLOW */}
+      <div className="absolute top-0 right-0 w-72 sm:w-[500px] h-72 sm:h-[500px] bg-[#0ABAB5]/5 blur-[120px] rounded-full -mr-40 -mt-40" />
+      <div className="absolute bottom-0 left-0 w-64 sm:w-[400px] h-64 sm:h-[400px] bg-[#0ABAB5]/5 blur-[100px] rounded-full -ml-32 -mb-32" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* HEADER */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-20 gap-8">
+        <div className="flex flex-col lg:flex-row gap-6 lg:items-end justify-between mb-14 sm:mb-20">
           <div>
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="flex items-center gap-3 mb-6"
+              className="flex items-center gap-3 mb-4"
             >
-              <span className="p-2 bg-[#0ABAB5]/10 rounded-lg text-[#0ABAB5]">
-                <Globe2 size={18} />
-              </span>
-              <span className="text-[#0ABAB5] text-[10px] font-bold tracking-[6px] uppercase italic">
+              <div className="h-[2px] w-10 bg-[#0ABAB5]" />
+              <span className="text-[#0ABAB5] text-[10px] tracking-[5px] font-bold uppercase">
                 Global Insights
               </span>
             </motion.div>
-            <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.8] uppercase">
-              Digital <br />{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0ABAB5] to-white/40">
+
+            <h2 className="text-4xl sm:text-6xl lg:text-8xl font-black leading-[0.9] lg:leading-[0.85] uppercase">
+              Digital <br />
+              <span className="bg-gradient-to-r from-[#0ABAB5] to-white/40 bg-clip-text text-transparent">
                 Archive.
               </span>
             </h2>
           </div>
 
+          {/* SEARCH */}
           <div className="relative w-full lg:w-96">
             <Search
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"
               size={18}
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"
             />
             <input
               type="text"
               placeholder="Search news & articles..."
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-[#0D0D0D] border border-white/5 rounded-2xl py-5 pl-12 pr-6 text-sm outline-none focus:border-[#0ABAB5]/40 transition-all placeholder:text-gray-700"
+              className="w-full bg-[#0D0D0D] border border-white/10 rounded-xl py-4 pl-12 pr-4 text-sm outline-none focus:border-[#0ABAB5]/50 transition"
             />
           </div>
         </div>
 
-        {/* CATEGORY CHIPS (Glass Style) */}
-        <div className="flex flex-wrap gap-3 mb-16">
+        {/* CATEGORY CHIPS */}
+        <div className="flex gap-3 overflow-x-auto pb-4 mb-12 scrollbar-hide">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -192,11 +190,11 @@ export default function Blog() {
                 setActiveCat(cat);
                 setCurrentPage(1);
               }}
-              className={`px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all border
+              className={`whitespace-nowrap px-5 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest border transition
                 ${
                   activeCat === cat
-                    ? "bg-[#0ABAB5] border-[#0ABAB5] text-black shadow-[0_10px_20px_rgba(10,186,181,0.2)]"
-                    : "bg-white/[0.03] border-white/5 text-gray-500 hover:border-white/20 hover:text-white"
+                    ? "bg-[#0ABAB5] text-black border-[#0ABAB5]"
+                    : "bg-white/[0.03] border-white/10 text-gray-400 hover:text-white"
                 }`}
             >
               {cat}
@@ -204,59 +202,55 @@ export default function Blog() {
           ))}
         </div>
 
-        {/* GRID LAYOUT */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* POSTS GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
           <AnimatePresence mode="wait">
-            {currentPosts.length > 0 ? (
+            {currentPosts.length ? (
               currentPosts.map((post, i) => (
                 <motion.div
                   key={post.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ delay: i * 0.1 }}
-                  className="group relative bg-[#0D0D0D] border border-white/5 rounded-[20px] overflow-hidden hover:border-[#0ABAB5]/30 transition-all duration-700"
+                  transition={{ delay: i * 0.05 }}
+                  className="bg-[#0D0D0D] border border-white/10 rounded-2xl overflow-hidden hover:border-[#0ABAB5]/30 transition"
                 >
                   <div className="flex flex-col lg:flex-row h-full">
-                    <div className="lg:w-1/3 h-64 lg:h-auto overflow-hidden">
+                    {/* IMAGE */}
+                    <div className="lg:w-1/3 h-56 lg:h-auto">
                       <img
                         src={post.image}
                         alt={post.title}
-                        className="w-full h-full object-cover grayscale-0 group-hover:grayscale group-hover:scale-110 transition-all duration-1000 opacity-50 group-hover:opacity-100"
+                        className="w-full h-full object-cover opacity-60 hover:opacity-100 transition"
                       />
-                      <div className="absolute top-6 left-6 lg:hidden">
-                        <span className="bg-black/60 backdrop-blur-md px-3 py-1 rounded-lg text-[#0ABAB5] text-[10px] font-bold uppercase">
-                          {post.category}
-                        </span>
-                      </div>
                     </div>
 
+                    {/* CONTENT */}
                     <div className="lg:w-2/3 p-5 flex flex-col justify-between">
                       <div>
-                        <span className="hidden lg:inline-block text-[#0ABAB5] text-[9px] font-black uppercase tracking-[4px] mb-4">
+                        <span className="text-[#0ABAB5] text-[9px] tracking-[4px] uppercase">
                           {post.category}
                         </span>
-                        <h3 className="text-2xl font-bold leading-tight mb-4 group-hover:text-[#0ABAB5] transition-colors">
+                        <h3 className="text-lg sm:text-xl font-bold mt-2 mb-3">
                           {post.title}
                         </h3>
-                        <p className="text-gray-500 text-sm line-clamp-3 font-light ">
+                        <p className="text-gray-500 text-sm line-clamp-3">
                           {post.excerpt}
                         </p>
                       </div>
 
-                      <div className="flex items-center justify-between pt-6 border-t border-white/5">
-                        <div className="flex gap-6 text-[10px] font-bold text-gray-600 uppercase">
-                          <span className="flex items-center gap-2">
-                            <Calendar size={12} className="text-[#0ABAB5]" />{" "}
-                            {post.date}
+                      <div className="flex items-center justify-between mt-6 pt-4 border-t border-white/10">
+                        <div className="flex gap-4 text-[10px] uppercase text-gray-500">
+                          <span className="flex items-center gap-1">
+                            <Calendar size={12} /> {post.date}
                           </span>
-                          <span className="flex items-center gap-2">
-                            <Eye size={12} className="text-[#0ABAB5]" />{" "}
-                            {post.views}
+                          <span className="flex items-center gap-1">
+                            <Eye size={12} /> {post.views}
                           </span>
                         </div>
-                        <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-[#0ABAB5] group-hover:text-black transition-all">
-                          <ArrowUpRight size={18} />
+
+                        <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-[#0ABAB5] hover:text-black transition">
+                          <ArrowUpRight size={16} />
                         </div>
                       </div>
                     </div>
@@ -264,9 +258,9 @@ export default function Blog() {
                 </motion.div>
               ))
             ) : (
-              <div className="col-span-full py-32 text-center">
-                <Sparkles className="mx-auto text-gray-800 mb-4" size={48} />
-                <p className="text-gray-600 font-bold uppercase tracking-widest text-xs">
+              <div className="col-span-full py-24 text-center">
+                <Sparkles className="mx-auto mb-4 text-gray-700" size={48} />
+                <p className="text-gray-500 text-xs uppercase tracking-widest">
                   No entries found in this sector
                 </p>
               </div>
@@ -276,34 +270,38 @@ export default function Blog() {
 
         {/* PAGINATION */}
         {totalPages > 1 && (
-          <div className="mt-20 flex justify-center items-center gap-4">
+          <div className="mt-12 flex justify-center items-center gap-3 flex-wrap">
             <button
-              onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
-              className="p-4 rounded-full border border-white/5 hover:bg-[#0ABAB5] hover:text-black transition-all disabled:opacity-20"
+              onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
               disabled={currentPage === 1}
+              className="p-3 border border-white/10 rounded-full disabled:opacity-30"
             >
-              <ChevronLeft size={20} />
+              <ChevronLeft size={18} />
             </button>
-            <div className="flex gap-2">
-              {[...Array(totalPages)].map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrentPage(i + 1)}
-                  className={`w-12 h-12 rounded-full font-black text-[10px] transition-all
-                    ${currentPage === i + 1 ? "bg-white text-black" : "bg-white/5 text-gray-500 hover:text-white"}`}
-                >
-                  {i + 1}
-                </button>
-              ))}
-            </div>
+
+            {[...Array(totalPages)].map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentPage(i + 1)}
+                className={`w-10 h-10 rounded-full text-[10px] font-bold
+                  ${
+                    currentPage === i + 1
+                      ? "bg-white text-black"
+                      : "bg-white/5 text-gray-400 hover:text-white"
+                  }`}
+              >
+                {i + 1}
+              </button>
+            ))}
+
             <button
               onClick={() =>
-                setCurrentPage((prev) => Math.min(totalPages, prev + 1))
+                setCurrentPage((p) => Math.min(totalPages, p + 1))
               }
-              className="p-4 rounded-full border border-white/5 hover:bg-[#0ABAB5] hover:text-black transition-all disabled:opacity-20"
               disabled={currentPage === totalPages}
+              className="p-3 border border-white/10 rounded-full disabled:opacity-30"
             >
-              <ChevronRight size={20} />
+              <ChevronRight size={18} />
             </button>
           </div>
         )}
