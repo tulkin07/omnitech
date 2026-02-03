@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import logo from "../assets/images/omnitech.jpg"
 
 // Google Fonts orqali Nunito Sans
 const nunitoSans = Space_Grotesk({
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
     description: "Biznesingizni avtomatlashtirish va innovatsion dasturiy yechimlar orqali yangi darajaga olib chiqing.",
     images: [
       {
-        url: "/assets/images/og-image.jpg", // Siz ko'rsatgan rasm manzili
+        url: "../assets/images/omnitech.jpg", // Siz ko'rsatgan rasm manzili
         width: 1200,
         height: 630,
         alt: "Omnitech IT Solutions Banner",
